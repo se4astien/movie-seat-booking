@@ -3,8 +3,10 @@ const container = document.querySelector('.container');
 const seats = document.querySelectorAll('.row .seat:not(.occupied)');
 const count = document.getElementById('count');
 const total = document.getElementById('total');
-
 const movieSelect = document.getElementById('movie');
+
+populateUI();
+
 let ticketPrice = +movieSelect.value; // convert to a number with sign '+'
 
 // Save selected movie index and price
@@ -29,7 +31,7 @@ function updateSelectedCount() {
   // console.log(seatsIndex);
 
   // Save into LS
-  localStorage.setItem('selectedSeats', JSON.stringify(seatsIndex)); // setItem need a key and value which transform it JSON format with JSON.stringify
+  localStorage.setItem('selectedSeats', JSON.stringify(seatsIndex)); // JSON stringify => transform seatsIndex into a String before put into LS (selectedSeats)
 
   const selectedSeatsCount = selectedSeats.length;
   //   console.log(selectedSeatsCount);
@@ -37,13 +39,29 @@ function updateSelectedCount() {
   total.innerText = selectedSeatsCount * ticketPrice;
 }
 
+// Get data from LS and populate UI
+function populateUI() {
+  const selectedSeats = JSON.parse(localStorage.getItem('selectedSeats')); // Now we need to pass it back into an array
+  // console.log(selectedSeats);
+  if (selectedSeats !== null && selectedSeats.length > 0) {
+    seats.forEach((seat, index) => {
+      if (selectedSeats.indexOf(index) > -1) {
+        seat.classList.add('selected');
+      }
+    });
+  }
+
+  const selectedMovieIndex = localStorage.getItem('selectedMovieIndex');
+  if (selectedMovieIndex !== null) {
+    movieSelect.selectedIndex = selectedMovieIndex;
+  }
+}
+
 // Update price select movie
 movieSelect.addEventListener('change', e => {
   ticketPrice = +e.target.value;
-
   // console.log(e.target.selectedIndex, e.target.value); // select movie
   setMovieData(e.target.selectedIndex, e.target.value); // select movie
-
   updateSelectedCount();
 });
 
@@ -63,3 +81,6 @@ container.addEventListener('click', e => {
 
   //   console.log(e.target);
 });
+
+// Initial count and total set
+updateSelectedCount();
