@@ -13,3 +13,8 @@ Project Cinema using JavaScript
 ## Online
 
 https://booking-movie-seat.netlify.com/
+
+
+## Screenshot
+
+![](https://raw.githubusercontent.com/se4astien/movie-seat-booking/master/screenshots/movie-seat-booking.png)
