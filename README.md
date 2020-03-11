@@ -17,5 +17,6 @@ https://booking-movie-seat.netlify.com/
 
 ## Screenshot
 
-![](https://raw.githubusercontent.com/se4astien/movie-seat-booking/master/screenshots/movie-seat-booking.png)
+<div style="display:flex; justify-content:center;">
 <img src="https://raw.githubusercontent.com/se4astien/movie-seat-booking/master/screenshots/movie-seat-booking.png" width="70%" />
+  </div>
