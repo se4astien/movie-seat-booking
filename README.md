@@ -1,13 +1,16 @@
-# Movie Seat Booking
+## Movie Seat Booking
 
-Project Cinema using JavaScript
+Display movie choices and seats in a theater to select from in order to purchase tickets.
 
-## What you can do?
+## Specifications
 
 ```javascript
-- Book a movie and a seat
-- Number of seat and price updated depending on which movie you wanna see
-- Data save into Local Storage.
+- Display UI with movie select, screen, seats, legend & seat info
+- User can select a movie/price
+- User can select/deselect seats
+- User can't select occupied seats
+- Number of seats and price will update
+- Save seats, movie and price to local storage so that UI is still populated on refresh
 ```
 
 ## Online
